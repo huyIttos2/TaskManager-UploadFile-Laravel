@@ -25,8 +25,11 @@
                        class="form-control"
                        id="inputTitle"
                        name="inputTitle"
-                       value="{{$task->inputTitle}}"
+                       value="{{$task->name}}"
                        required>
+                @if($errors->has('inputTitle'))
+                   <p>{{$errors->first('inputTitle')}}</p>
+                @endif
             </div>
             <div class="form-group">
                 <label for="inputContent">Task content</label>
@@ -36,6 +39,9 @@
                           rows="3"
                           value="{{$task->inputContent}}"
                           required></textarea>
+                @if($errors->has('inputContent'))
+                    <p>{{$errors->first('inputContent')}}</p>
+                @endif
             </div>
             <div class="form-group">
                 <label for="inputDueDate">Due Date</label>
@@ -45,6 +51,9 @@
                        name="inputDueDate"
                        value="{{$task->inputDueDate}}"
                        required>
+                @if($errors->has('inputDueDate'))
+                    <p>{{$errors->first('inputDueDate')}}</p>
+                @endif
             </div>
             <div class="form-group">
                 <label for="inputFileName">File Name</label>
@@ -53,11 +62,17 @@
                        id="inputFileName"
                        name="inputFileName"
                 value="{{$task->inputFileName}}">
+                @if($errors->has('inputFileName'))
+                    <p>{{$errors->first('inputName')}}</p>
+                @endif
                 <input type="file"
                        class="form-control-file"
                        id="inputFile"
                       value="{{$task->image}}"
                        name="inputFile">
+                @if($errors->has('inputFile'))
+                    <p>{{$errors->first('inputFile')}}</p>
+                @endif
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

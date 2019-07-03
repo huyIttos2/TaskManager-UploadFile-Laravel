@@ -43,11 +43,11 @@
                             @foreach($tasks as $key => $task)
                                 <tr>
                                     <th scope="row">{{ ++$key }}</th>
-                                    <td>{{ $task->inputTitle }}</td>
+                                    <td>{{ $task-> name }}</td>
                                     <td>{{ $task->inputContent }}</td>
                                     <td>{{ $task->inputDueDate }}</td>
                                     <td align="center">
-                                        <img src="{{ asset('storage/images/'.$task->image) }}" style="width: 55px; height: 60px; border-radius: 50%;">
+                                        <img src="{{ asset('/storage/images/'.$task->image) }}" style="width: 55px; height: 60px; border-radius: 50%;">
                                     </td>
                                     <td><a class="text-primary" href="{{route('tasks.delete',$task->id)}}">Delete</a>
                                         <a class="text-dark" href="{{route('tasks.edit',$task->id)}}">Update</a>
