@@ -1,5 +1,6 @@
 <?php
 
+use App\Task;
 use Illuminate\Database\Seeder;
 
 class TaskTableSeeder extends Seeder
@@ -11,17 +12,26 @@ class TaskTableSeeder extends Seeder
      */
     public function run()
     {
-        $arrData = [];
-        for($i = 0; $i < 20; $i++){
-            array_push($arrData,[
-               'inputTitle' => str_random(10),
-               'inputContent' => str_random(10),
-               'inputDueDate' => date('Y-m-d H:i:s'),
-               'image' => str_random(10),
-               'created_at' => date('Y-m-d H:i:s'),
-               'updated_at' => date('Y-m-d H:i:s'),
-            ]);
+        $task = new Task();
+        $task->id               = 1;
+        $task->name            = "Công việc 1";
+        $task->inputContent          = "Nội dung công việc 1";
+        $task->image            = "";
+        $task->inputDueDate         = "2018-09-15";
+        $task->save();
+        $task = new Task();
+        $task->id               = 2;
+        $task->name            = "Công việc 2";
+        $task->inputContent          = "Nội dung công việc 2";
+        $task->image            = "";
+        $task->inputDueDate         = "2018-09-16";
+        $task->save();
+        $task = new Task();
+        $task->id               = 3;
+        $task->name            = "Công việc 3";
+        $task->inputContent          = "Nội dung công việc 3";
+        $task->image            = "";
+        $task->inputDueDate         = "2018-09-17";
+        $task->save();
         }
-        DB::table('tasks')->insert($arrData);
     }
-}
