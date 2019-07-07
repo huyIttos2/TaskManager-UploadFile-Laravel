@@ -29,12 +29,8 @@ class TaskController extends Controller
         $task->inputContent = $request->inputContent;
         $task->inputDueDate = $request->inputDueDate;
         if ($request->has('inputFile')) {
-            // Get image file
             $image = $request->file('inputFile');
-            // Make a image name based on user name and current timestamp
             $name = str_slug($request->input('inputFileName')).'_'.time();
-            // Define folder path
-            // Make a file path where image will be stored [ folder path + file name + file extension]
             $newName =  $name.".".$image->getClientOriginalExtension();
             // Upload image
             $image->storeAs('public/images',$newName);
